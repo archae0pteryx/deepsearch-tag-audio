@@ -6,9 +6,10 @@
   "scripts": {
     "start": "node src/index.js",
     "debug": "node --inspect-brk src/index.js",
-    "setup": "chmod +x ./install.sh && ./install.sh",
+    "setup": "./scripts/setup.sh",
     "test": "jest --runInBand",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "shell": "docker compose run --rm app"
   },
   "dependencies": {
     "deepspeech": "^0.9.3",

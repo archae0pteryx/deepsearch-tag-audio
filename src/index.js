@@ -7,8 +7,8 @@ const Wav = require('node-wav')
 const fs = require('fs-extra')
 
 const { writeData } = require('./utils')
-const { convertTokensToWordTimeObject } = require('./parser')
-const { MOCK_TRANSCRIPT } = require('./mocks')
+// const { convertTokensToWordTimeObject } = require('./parser')
+// const { MOCK_TRANSCRIPT } = require('./mocks')
 
 const { MODEL_DIR, AUDIO_DIR, WAV_FILE, OUT_DIR, MODEL_PATH, SCORER_PATH } =
   process.env
@@ -21,6 +21,7 @@ function bufferToStream(buffer) {
 }
 
 function run() {
+  const startedAt = Date.now()
   const model = new DeepSpeech.Model(MODEL_PATH)
   const desiredSampleRate = model.sampleRate()
 
@@ -64,7 +65,8 @@ function run() {
     const stringToText = model.stt(audioBuffer)
     console.log('[+] getting metadata')
     const { transcripts } = model.sttWithMetadata(audioBuffer)
-    
+    console.log(`started at: ${startedAt}`)
+    console.log(`ended at ${Date.now()}`)
     writeData(stringToText, transcripts)
   })
 }

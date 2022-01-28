@@ -9,8 +9,6 @@ const writeData = (stringToText, transcripts) => {
 	fs.writeFileSync(`${OUT_DIR}/transcripts.json`, stringify(transcripts))
 }
 
-
-
 module.exports = {
   writeData,
   stringify

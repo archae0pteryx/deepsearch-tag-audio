@@ -1,0 +1,10 @@
+version: '3.4'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: deepsearch/dev
+    volumes:
+      - .:/app
+    entrypoint: /bin/bash
