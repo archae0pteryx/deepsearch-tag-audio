@@ -1,0 +1,4 @@
+- install script for system deps
+- generate wav from mp3
+  - `ffmpeg -i <input.mp3> -t <only this many sec> <output.wav>`
+- check .env

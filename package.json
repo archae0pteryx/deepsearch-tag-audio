@@ -1,0 +1,16 @@
+{
+  "name": "deepsearch-tag-audio-from-text",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "deepspeech": "^0.9.3",
+    "fs-extra": "^10.0.0",
+    "node-wav": "^0.0.2",
+    "sox-stream": "^2.0.6",
+    "util": "^0.12.4"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
+}
