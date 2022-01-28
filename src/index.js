@@ -6,8 +6,9 @@ const Sox = require('sox-stream')
 const Wav = require('node-wav')
 const fs = require('fs-extra')
 
-const { writeData } = require('./utils')
-// const { convertTokensToWordTimeObject } = require('./parser')
+const { writeData, stringify } = require('./utils')
+
+const { convertTokensToWordTimeObject } = require('./parser')
 // const { MOCK_TRANSCRIPT } = require('./mocks')
 
 const { MODEL_DIR, AUDIO_DIR, WAV_FILE, OUT_DIR, MODEL_PATH, SCORER_PATH } =
@@ -68,6 +69,8 @@ function run() {
     console.log(`started at: ${startedAt}`)
     console.log(`ended at ${Date.now()}`)
     writeData(stringToText, transcripts)
+    const obj = convertTokensToWordTimeObject(MOCK_TRANSCRIPT[0].tokens)
+    console.log(stringify(obj))
   })
 }
 

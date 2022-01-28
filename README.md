@@ -16,7 +16,7 @@ locally:
 
 ```bash
 yarn install
-yarn setup # This installs sample models and audio. takes a while
+yarn setup # OSX: This installs deps, sample models, and audio. takes a while
 ```
 
 Notes:
