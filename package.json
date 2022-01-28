@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "debug": "node --inspect-brk src/index.js",
+    "setup": "chmod +x ./install.sh && ./install.sh",
+    "test": "jest --runInBand",
+    "test:watch": "jest --watchAll"
+  },
   "dependencies": {
     "deepspeech": "^0.9.3",
+    "dotenv": "^14.3.2",
     "fs-extra": "^10.0.0",
     "node-wav": "^0.0.2",
     "sox-stream": "^2.0.6",
