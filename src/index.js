@@ -64,11 +64,11 @@ function run() {
     const stringToText = model.stt(audioBuffer)
     console.log('[+] getting metadata')
     const { transcripts } = model.sttWithMetadata(audioBuffer)
-
-    // writeData(stringToText, transcripts)
+    
+    writeData(stringToText, transcripts)
   })
 }
 
-const obj = convertTokensToWordTimeObject(MOCK_TRANSCRIPT[0].tokens)
-console.log(obj)
-// run()
+// const obj = convertTokensToWordTimeObject(MOCK_TRANSCRIPT[0].tokens)
+// console.log(obj)
+run()

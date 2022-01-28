@@ -1,3 +1,4 @@
+const { MIN_PHRASE_THREASHOLD } = process.env
 
 const tokensToTuple = tokens => tokens.map(({ start_time, text }) => [start_time, text])
 
@@ -40,10 +41,6 @@ const findStartTimeForPhrase = (wordTimeMap, phrase) => {
 			}
 			results.push(phraseArr[count])
 			count++
-		}
-
-		if (results === phraseArr) {
-			console.log('poof')
 		}
 	})
 	console.log({ results })
