@@ -1,4 +1,8 @@
-const { tokensToTuple, convertTokensToWordTimeObject } = require('./parser')
+const {
+  tokensToTuple,
+  convertTokensToWordTimeObject,
+  findStartTimeForPhrase,
+} = require('./parser')
 
 const { MOCK_TRANSCRIPT, MOCK_TEXT } = require('./mocks')
 
@@ -14,5 +18,13 @@ describe('raw transcript response', () => {
     const actual = convertTokensToWordTimeObject(TOKENS)
     const len = Object.keys(actual).length
     expect(len).toBe(MOCK_TEXT.split(' ').length)
+  })
+})
+
+describe('matching', () => {
+  it('matches selected phrase with start time', () => {
+    const wordTimeMap = convertTokensToWordTimeObject(TOKENS)
+    const actual = findStartTimeForPhrase(wordTimeMap, 'proves this more')
+    expect(actual).toBe(1.2200000286102295)
   })
 })

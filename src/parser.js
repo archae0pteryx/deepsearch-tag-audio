@@ -4,6 +4,7 @@ const tokensToTuple = tokens => tokens.map(({ start_time, text }) => [start_time
 
 const convertTokensToWordTimeObject = (tokens) => {
 	const transcriptArrayOfTuples = tokensToTuple(tokens)
+  // add space at end for final check for last word
   transcriptArrayOfTuples.push([null, ' '])
 	const output = {}
 	let buildWord = []
@@ -25,8 +26,32 @@ const convertTokensToWordTimeObject = (tokens) => {
 	return output
 }
 
+const findStartTimeForPhrase = (wordTimeMap, phrase) => {
+	const results = []
+	let resultTime = 0
+	const phraseArr = phrase.split(' ')
+
+	let count = 0
+
+	Object.entries(wordTimeMap).forEach(([word, time]) => {
+		if (word === phraseArr[count]) {
+			if (count === 0) {
+				resultTime = time
+			}
+			results.push(phraseArr[count])
+			count++
+		}
+
+		if (results === phraseArr) {
+			console.log('poof')
+		}
+	})
+	console.log({ results })
+	return resultTime
+}
 
 module.exports = {
   tokensToTuple,
-  convertTokensToWordTimeObject
+  convertTokensToWordTimeObject,
+	findStartTimeForPhrase
 }

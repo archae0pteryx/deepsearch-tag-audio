@@ -69,6 +69,6 @@ function run() {
   })
 }
 
-convertTokensToWordTimeObject(MOCK_TRANSCRIPT[0].tokens)
-
+const obj = convertTokensToWordTimeObject(MOCK_TRANSCRIPT[0].tokens)
+console.log(obj)
 // run()
